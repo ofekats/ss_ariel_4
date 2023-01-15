@@ -34,8 +34,6 @@ void check(vert * arr){
         printf ("arr[%d]:%d\n",i,arr->value);
         edge** print_edge = NULL;
         print_edge = &(arr->next_edge);
-        // if (arr->next_edge != NULL){
-            // printf("arr->next_edge.weight %d\n", arr->next_edge->weight);
             while (*print_edge != NULL)
             {
                 printf("weight = %d, dest = %d\n", (*print_edge)->weight, ((*print_edge)->dest_vert)->value);
@@ -43,23 +41,11 @@ void check(vert * arr){
                 
             } 
             i++;
-        // }
         arr = arr->nextV;
     }
     arr = head;
 
 }
-
-// void free_all (vert * head){
-
-//     if (head != NULL)
-//     {
-//         vert * head_for_free = head;
-//         while(head_for_free != NULL){
-//             delete(&head_for_free,head_for_free->value);
-//         }
-//     }
-// }
 
 void free_all(vert * head_of_vert) {
     vert * current_vert = head_of_vert;
@@ -85,7 +71,6 @@ char new_graph (vert ** head_of_vert){
     
     int num_of_vert = 0;
     scanf("%d", &num_of_vert);
-    // printf ("input = %d\n", num_of_vert);
     vert ** last_vert = NULL;
     vert * array_of_vert = *head_of_vert;
     for (int i = 0; i< num_of_vert; i++){
@@ -122,7 +107,6 @@ char new_graph (vert ** head_of_vert){
         }
 
         scanf ("%d", &vert_from_user);
-        // printf ("input = %d\n", vert_from_user);
         edge** last_edge = NULL;
         while(array_of_vert != NULL){
             
@@ -135,7 +119,6 @@ char new_graph (vert ** head_of_vert){
         }
         last_edge = &(array_of_vert->next_edge); 
         num_from_user = scanf("%d", &input_from_user);
-        // printf ("input = %d\n", input_from_user);
         
         while (num_from_user != EOF  && num_from_user != 0){
             
@@ -167,11 +150,9 @@ char new_graph (vert ** head_of_vert){
             }
             (*last_edge)->dest_vert = (search_dest);
             scanf("%d", &input_from_user);
-            // printf ("input = %d\n", input_from_user);
             (*last_edge)->weight = input_from_user;
             last_edge = &((*last_edge)->next);
             num_from_user = scanf("%d", &input_from_user);
-            // printf ("input = %d\n", input_from_user);
         }
         array_of_vert = *head_of_vert;
         
